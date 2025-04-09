@@ -214,8 +214,3 @@ process.on("SIGINT", () => {
     rl.close();
     process.exit(0);
 });
-
-// Проверка библиотеки teeworlds:
-// Убедитесь, что версия "^1.2.1" поддерживает DDNet 18.0.9.0.
-// Проверьте на npm (https://www.npmjs.com/package/teeworlds) или GitHub.
-// Если она устарела, найдите форк или обновите протокол вручную.

@@ -1,4 +1,4 @@
-const teeworlds = require('teeworlds');
+const teeworlds = require('teeworlds-library-ts');
 const readline = require('readline');
 
 const rl = readline.createInterface({

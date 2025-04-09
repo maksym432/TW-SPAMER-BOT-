@@ -21,5 +21,6 @@ node tw-spamer-bot.js
 
 
 
-#author:
+# author 
+
 t.me/Black0reo  t.me/keepyourhuman

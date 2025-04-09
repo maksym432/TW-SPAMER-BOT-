@@ -18,3 +18,8 @@ npm install teeworlds
 ```js
 node tw-spamer-bot.js
 ```
+
+
+
+#author:
+t.me/Black0reo  t.me/keepyourhuman

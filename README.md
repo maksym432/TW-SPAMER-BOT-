@@ -19,7 +19,11 @@ npm install teeworlds
 node tw-spamer-bot.js
 ```
 
+# если возникнут ошибки: 
 
+```
+pkg Install git
+```
 
 # author 
 

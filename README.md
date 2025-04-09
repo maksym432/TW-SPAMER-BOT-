@@ -5,9 +5,13 @@
 
 
 чтобы скачать файл введите в термукс 
-#скачиваем файл
-git clone https://github.com/maksym432/TW-SPAMER-BOT-
+## Установка
+
+1. Клонируйте репозиторий:
+   ```bash
+   git clone https://github.com/maksym432/TW-SPAMER-BOT-
 cd TW-SPAMER-BOT-
+   ```
 
 #качаем зависимости 
 pkg install nodejs

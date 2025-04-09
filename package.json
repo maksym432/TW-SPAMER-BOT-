@@ -1,7 +1,7 @@
 {
   "name": "tw-spamer-bot",
   "version": "1.0.0",
-  "description": "Бот для спама в Teeworlds с поддержкой чата, голосования и подключений",
+  "description": "Бот для спама на серверах с поддержкой чата, голосования и подключений",
   "main": "tw-spamer-bot.js",
   "scripts": {
     "start": "node tw-spamer-bot.js",

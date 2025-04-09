@@ -163,7 +163,7 @@ DDNet 18.0.9.0 Support
     console.log("4. Сообщения — боты пишут в чат и выходят");
     const modeChoice = await askQuestion("Введите номер режима (1-4): ");
 
-    let mode, vote maridoChoice, chatMessage;
+    let mode, voteChoice, chatMessage;
     if (modeChoice === "1") {
         mode = "spam";
     } else if (modeChoice === "2") {

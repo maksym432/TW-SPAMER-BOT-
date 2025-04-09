@@ -118,7 +118,7 @@ async function runBotGroup(server, baseName, botCount, mode, voteChoice, chatMes
 
             setTimeout(actionLoop, 1000);
         } catch (err) {
-            console.log(`❌ Ошибка в группе ботов: ${err.message}`);
+            console.log(` Ошибка в группе ботов: ${err.message}`);
             setTimeout(actionLoop, 2000);
         }
     }

@@ -54,7 +54,7 @@ async function runBot(server, baseName, botNumber, mode, voteChoice, chatMessage
             });
             client.on("kill", (info) => {
                 if (info.killer && info.victim && info.killer.ClientInfo && info.victim.ClientInfo) {
-                    console.log(`⚔️ ${info.killer.ClientInfo.name} убил ${info.victim.ClientInfo.name}`);
+                    console.log(` ${info.killer.ClientInfo.name} убил ${info.victim.ClientInfo.name}`);
                 }
             });
             client.on("error", (err) => {

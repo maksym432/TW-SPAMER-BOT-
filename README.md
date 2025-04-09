@@ -25,6 +25,7 @@ node tw-spamer-bot.js
 pkg Install git
 npm install git+https://github.com/teeworlds/teeworlds.git
 npm install git+https://github.com/swarfeya/teeworlds-library-ts.git
+npm install (чтобы все подтянулось)
 
 
 ```

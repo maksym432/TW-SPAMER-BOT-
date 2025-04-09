@@ -42,8 +42,13 @@ async function runBot(server, baseName, botNumber, mode, voteChoice, chatMessage
             client.on("connected", () => {
                 console.log(`🤖 ${botName} вошёл на сервер`);
             });
-            client.on("disconnect", (reason) => {
+            client.on("disconnect", async (reason) => {
                 console.log(`🤖 ${botName} отключен: ${reason}`);
+                // Автоматическое переподключение в режиме "dummy"
+                if (mode === "dummy") {
+                    console.log(`🤖 ${botName} переподключаюсь...`);
+                    await client.connect();
+                }
             });
             client.on("message", (message) => {
                 if (message.author && message.author.ClientInfo) {
@@ -89,19 +94,31 @@ async function runBotGroup(server, baseName, botCount, mode, voteChoice, chatMes
             } else if (mode === "vote") {
                 if (firstCycle) {
                     console.log("Все боты голосуют...");
-                    await Promise.all(bots.map(bot => bot.say(voteChoice === "yes" ? "yes" : "no")));
+                    await Promise.all(bots.map(async (bot, index) => {
+                        await new Promise(resolve => setTimeout(resolve, index * 1000)); // Задержка 1 сек между ботами
+                        await bot.say(voteChoice === "yes" ? "yes" : "no");
+                    }));
                     console.log(`✅ Все ${botCount} ботов проголосовали: ${voteChoice === "yes" ? "да" : "нет"}`);
                 } else {
-                    await Promise.all(bots.map(bot => bot.say(voteChoice === "yes" ? "yes" : "no")));
+                    await Promise.all(bots.map(async (bot, index) => {
+                        await new Promise(resolve => setTimeout(resolve, index * 1000));
+                        await bot.say(voteChoice === "yes" ? "yes" : "no");
+                    }));
                     console.log(`✅ Боты проголосовали в ${new Date().toLocaleTimeString()}`);
                 }
             } else if (mode === "chat") {
                 if (firstCycle) {
                     console.log("Все боты пишут сообщение...");
-                    await Promise.all(bots.map(bot => bot.say(chatMessage)));
+                    await Promise.all(bots.map(async (bot, index) => {
+                        await new Promise(resolve => setTimeout(resolve, index * 1000)); // Задержка 1 сек между ботами
+                        await bot.say(chatMessage);
+                    }));
                     console.log(`✅ Все ${botCount} ботов отправили сообщение: "${chatMessage}"`);
                 } else {
-                    await Promise.all(bots.map(bot => bot.say(chatMessage)));
+                    await Promise.all(bots.map(async (bot, index) => {
+                        await new Promise(resolve => setTimeout(resolve, index * 1000));
+                        await bot.say(chatMessage);
+                    }));
                     console.log(`✅ Боты отправили сообщение в ${new Date().toLocaleTimeString()}`);
                 }
             }
@@ -146,7 +163,7 @@ DDNet 18.0.9.0 Support
     console.log("4. Сообщения — боты пишут в чат и выходят");
     const modeChoice = await askQuestion("Введите номер режима (1-4): ");
 
-    let mode, voteChoice, chatMessage;
+    let mode, vote maridoChoice, chatMessage;
     if (modeChoice === "1") {
         mode = "spam";
     } else if (modeChoice === "2") {
@@ -197,3 +214,8 @@ process.on("SIGINT", () => {
     rl.close();
     process.exit(0);
 });
+
+// Проверка библиотеки teeworlds:
+// Убедитесь, что версия "^1.2.1" поддерживает DDNet 18.0.9.0.
+// Проверьте на npm (https://www.npmjs.com/package/teeworlds) или GitHub.
+// Если она устарела, найдите форк или обновите протокол вручную.

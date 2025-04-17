@@ -14,6 +14,7 @@ cd TW-SPAMER-BOT-
 pkg install nodejs
 npm install teeworlds
 npm install chalk
+npm install axios
 ```
 # запуск
 ```js

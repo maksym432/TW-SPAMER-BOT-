@@ -13,6 +13,7 @@ cd TW-SPAMER-BOT-
 ```js
 pkg install nodejs
 npm install teeworlds
+npm install chalk
 ```
 # запуск
 ```js
@@ -25,7 +26,7 @@ node tw-spamer-bot.js
 pkg Install git
 npm install git+https://github.com/teeworlds/teeworlds.git
 npm install git+https://github.com/swarfeya/teeworlds-library-ts.git
-npm install (чтобы все подтянулось)
+npm install #(чтобы все подтянулось)
 
 
 ```
